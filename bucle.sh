@@ -29,7 +29,7 @@ function ctrl_c(){
 function helpPanel(){
 	echo -e "\n${redColour}[!] Uso de Script ./${endColour}"
 	for i in $(seq 1 80); do echo -ne "${redColour}-"; done; echo -e "${endColour}"
-	echo -e "\n\n${grayColour}[-a]${endColour}${yellowColour} Buscar por Nombre de App ${endColour}"
+	echo -e "\n\n${grayColour}\t[-a]${endColour}${yellowColour} Buscar por Nombre de App ${endColour}"
 
 	tput cnorm; exit 1
 }
@@ -126,16 +126,22 @@ while getopts "a:h:" arg; do
 	case $arg in 
 		a) findApp=$OPTARG; let parameter_counter+=1;;
 		h) helpPanel=$OPTARG; let parameter_counter+=1;;
+
 	esac
 done
 
+#number_output = 100
 
-if [ $parameter_counter -eq 0]; then
+if [$parameter_counter -eq 0]
+ then
 	helpPanel
-else
-	number_output = 100
-	findApp $number_output
 fi
+#else
+#    echo -e "else"
+#	findApp $number_output
+#fi
+
+
 
 #contador=0
 
